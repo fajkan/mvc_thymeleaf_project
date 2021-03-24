@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo Page</title>
+
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css} "/>
+    <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+    <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+    <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+
+    <style>
+        body{
+            padding-top: 60px;
+        }
+    </style>
+
+</head>
+<body>
+<nav th:insert="fragments/navbar :: nav_fragment" ></nav>
+
+<div class="container">
+    <h2>Demo Page</h2>
+    <p>
+        <span th:text="${welcomeMessage}"></span>
+    </p>
+
+    <p>
+        ServerTime: <span th:text="${serverTime}"></span>
+    </p>
+
+
+    <p>
+        Product Name: <span th:text="${#strings.capitalize(productName)}"></span>
+    </p>
+
+    <p>
+        Price: <span th:text="${#numbers.formatDecimal(price,1,2)}"></span>
+    </p>
+
+    <p>
+        Date: <span th:text="${#temporals.format(d, 'dd-MM-yyyy')}"></span>
+    </p>
+</div>
+
+<footer th:insert="fragments/footer :: footer_fragment" ></footer>
+
+</body>
+</html>
